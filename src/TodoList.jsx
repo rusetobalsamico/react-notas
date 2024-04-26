@@ -20,6 +20,18 @@ function TodoList() {
     });
   };
 
+  const changeTodoState = (event, id) => {
+    console.log(event.target.checked);
+    setTodos((prevTodos) => {
+      return prevTodos.map((t) => {
+        if (t.id === id) {
+          return { ...t, completed: event.target.checked };
+        }
+        return t;
+      });
+    });
+  };
+
   // console.log(todos);
   return (
     <List>
@@ -30,6 +42,7 @@ function TodoList() {
             todo={todo}
             tabIndex={index}
             //removeTodo={() => removeTodo(todo.id)}
+            onChange={(event) => changeTodoState(event, todo.id)}
             remove={removeTodo}
           />
         );
