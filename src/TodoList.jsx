@@ -23,11 +23,12 @@ function TodoList() {
   // console.log(todos);
   return (
     <List>
-      {todos.map((todo) => {
+      {todos.map((todo, index) => {
         return (
           <TodoItem
             key={todo.id}
             todo={todo}
+            tabIndex={index}
             //removeTodo={() => removeTodo(todo.id)}
             remove={removeTodo}
           />
