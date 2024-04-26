@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TodoItem from "./TodoItem";
+import { List } from "@mui/material";
 
 const initialTodos = [
   { id: 1, text: "Walk the dog", completed: false },
@@ -21,7 +22,7 @@ function TodoList() {
 
   // console.log(todos);
   return (
-    <div>
+    <List>
       {todos.map((todo) => {
         return (
           <TodoItem
@@ -32,7 +33,7 @@ function TodoList() {
           />
         );
       })}
-    </div>
+    </List>
   );
 }
 
