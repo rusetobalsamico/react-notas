@@ -10,7 +10,7 @@ import {
 import CommentIcon from "@mui/icons-material/Comment";
 
 
-function TodoItem({todo, remove}) {
+function TodoItem({todo, remove, tabIndex, onChange}) {
   const labelId = `checkbox-list-label-${todo.id}`;
 
   const removeTodo = () => {
@@ -31,8 +31,9 @@ function TodoItem({todo, remove}) {
           <Checkbox
             edge="start"
             checked={todo.completed}
-            tabIndex={-1}
+            tabIndex={tabIndex}
             disableRipple
+            onChange={event => onChange(event)}
             inputProps={{ "aria-labelledby": labelId }}
           />
         </ListItemIcon>

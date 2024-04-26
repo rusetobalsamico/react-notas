@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TodoItem from "./TodoItem";
+import { List } from "@mui/material";
 
 const initialTodos = [
   { id: 1, text: "Walk the dog", completed: false },
@@ -19,20 +20,34 @@ function TodoList() {
     });
   };
 
+  const changeTodoState = (event, id) => {
+    console.log(event.target.checked);
+    setTodos((prevTodos) => {
+      return prevTodos.map((t) => {
+        if (t.id === id) {
+          return { ...t, completed: event.target.checked };
+        }
+        return t;
+      });
+    });
+  };
+
   // console.log(todos);
   return (
-    <div>
-      {todos.map((todo) => {
+    <List>
+      {todos.map((todo, index) => {
         return (
           <TodoItem
             key={todo.id}
             todo={todo}
+            tabIndex={index}
             //removeTodo={() => removeTodo(todo.id)}
+            onChange={(event) => changeTodoState(event, todo.id)}
             remove={removeTodo}
           />
         );
       })}
-    </div>
+    </List>
   );
 }
 
