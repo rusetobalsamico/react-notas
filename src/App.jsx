@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CssBaseline } from "@mui/material";
 import TodoList from "./TodoList";
+import Navbar from './Navbar';
 import "./App.css";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   return (
     <>
       <CssBaseline />
-      {/* <h1>mama esta presa</h1> */}
+      <Navbar />
       <TodoList />
     </>
   );

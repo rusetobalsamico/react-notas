@@ -7,10 +7,10 @@ import {
   Checkbox,
   ListItemText,
 } from "@mui/material";
-import CommentIcon from "@mui/icons-material/Comment";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 
-function TodoItem({todo, remove}) {
+function TodoItem({todo, remove, toggle}) {
   const labelId = `checkbox-list-label-${todo.id}`;
 
   const removeTodo = () => {
@@ -21,7 +21,7 @@ function TodoItem({todo, remove}) {
     <ListItem
       secondaryAction={
         <IconButton edge="end" aria-label="comments" onClick={removeTodo}>
-          <CommentIcon />
+          <DeleteIcon />
         </IconButton>
       }
       disablePadding
@@ -34,6 +34,7 @@ function TodoItem({todo, remove}) {
             tabIndex={-1}
             disableRipple
             inputProps={{ "aria-labelledby": labelId }}
+            onChange={toggle}
           />
         </ListItemIcon>
         <ListItemText id={labelId} primary={todo.text} />
